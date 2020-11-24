@@ -19,7 +19,7 @@ class App extends React.Component{
     .then(data => this.setState({ toys: data}))
   }
 
-  // POST Request 
+  // POST Request ------------------
   submitHandler = (obj) => {
     
     fetch("http://localhost:3000/toys", {
@@ -38,7 +38,7 @@ class App extends React.Component{
     .then(newToy => this.setState({ toys: [...this.state.toys, newToy]}))
   }
 
-  /// DELETE Request 
+  /// DELETE Request --------------
   clickHandler = (deletedObj) => {
   
     fetch(`http://localhost:3000/toys/${deletedObj.id}`, {
@@ -52,6 +52,7 @@ class App extends React.Component{
     })
   }
 
+  // PATCH -------------
   likesCounter = (likeObj) => {
     const updatedToys = [...this.state.toys]
     const oldToy = updatedToys.find(element => element.id === likeObj.id)
